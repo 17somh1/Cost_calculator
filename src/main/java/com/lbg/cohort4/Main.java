@@ -73,7 +73,8 @@ public class Main{
                 System.out.print(errorMessage);
             }
         }
-        return intValue;
+        return Math.max(intValue, 0);
+
     }
     public static double sum(ArrayList<ShopItem> items, double taxRate){
         double sum = 0;
