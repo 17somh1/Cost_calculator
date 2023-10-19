@@ -39,9 +39,6 @@ public class Main{
         System.out.println("Your total cost for these items (price + VAT) is: " + sum(itemPrices, vat/100));
 
     }
-    public static double calculateVAT(double price, double vat){
-        return price + (price * vat/100);
-    }
 
     // Method implementing error checking to assert String can be parsed to double.
     public static double getDoubleValue(String initialMessage, String errorMessage) {
