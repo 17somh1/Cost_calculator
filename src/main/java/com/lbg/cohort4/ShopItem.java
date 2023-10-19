@@ -7,9 +7,8 @@ public class ShopItem {
     public ShopItem(double itemPrice, int quantity){
         this.itemPrice = itemPrice;
         this.quantity = quantity;
-
     }
-    public double calculateTotalCost(double taxRate){
+    public double calculateCost(double taxRate){
         return (itemPrice * quantity) + (itemPrice * quantity * taxRate);
     }
 }
