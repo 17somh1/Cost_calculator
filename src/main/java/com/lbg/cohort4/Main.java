@@ -8,7 +8,7 @@ public class Main{
 
     public static void main(String[] args) {
 
-        ArrayList<Double> itemPrices = new ArrayList<>();
+        ArrayList<ShopItem> itemPrices = new ArrayList<>();
         Scanner mainScanner = new Scanner(System.in);
         boolean quit = false;
 
@@ -16,8 +16,13 @@ public class Main{
 
         int iteration = 1;
         while(!quit){
-            itemPrices.add(getDoubleValue(String.format("Item %d", iteration),
-                    "Please Enter a Numerical Value: "));
+
+            itemPrices.add(new ShopItem(
+                    getDoubleValue(String.format("Item %d Price (£): ", iteration),
+                    "Please Enter a Numerical Value: "),
+                    getIntValue("Please enter a quantity: ",
+                            "Please Enter a Numerical Value:")));
+
             System.out.print("Type 'quit' to exit and save or any other key to continue: ");
             if(mainScanner.next().equalsIgnoreCase("quit")){
                 quit = true;
@@ -31,7 +36,7 @@ public class Main{
         }while(!(vat >= 0 && vat <= 100));
 
 
-        System.out.println("Your total cost for these items (price + VAT) is: " + calculateVAT(sum(itemPrices), vat));
+        System.out.println("Your total cost for these items (price + VAT) is: " + sum(itemPrices, vat/100));
 
     }
     public static double calculateVAT(double price, double vat){
@@ -55,12 +60,25 @@ public class Main{
         return doubleValue;
     }
 
-    public static double sum(ArrayList<Double> ints){
+    public static int getIntValue(String initialMessage, String errorMessage) {
+        Scanner scan = new Scanner(System.in);
+        boolean success = false;
+        System.out.print(initialMessage);
+        int intValue = 0;
+        while (!success) {
+            try {
+                intValue = Integer.parseInt(scan.next());
+                success = true;
+            } catch (Exception e) {
+                System.out.print(errorMessage);
+            }
+        }
+        return intValue;
+    }
+    public static double sum(ArrayList<ShopItem> items, double taxRate){
         double sum = 0;
-
-        for (double i : ints)
-            sum += i;
-
+        for (ShopItem item : items)
+            sum += item.calculateTotalCost(taxRate);
         return sum;
     }
 }
