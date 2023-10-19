@@ -3,8 +3,6 @@ package com.lbg.cohort4;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static java.lang.StringTemplate.STR;
-
 public class Main{
 
 
