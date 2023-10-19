@@ -1,12 +1,12 @@
 package com.lbg.cohort4;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static java.lang.StringTemplate.STR;
 
 public class Main{
+
 
     public static void main(String[] args) {
 
@@ -59,9 +59,10 @@ public class Main{
 
     public static double sum(ArrayList<Double> ints){
         double sum = 0;
-        for (double i : ints) {
+
+        for (double i : ints)
             sum += i;
-        }
+
         return sum;
     }
 }
