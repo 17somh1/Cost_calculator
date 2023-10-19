@@ -18,7 +18,7 @@ public class Main{
 
         int iteration = 1;
         while(!quit){
-            itemPrices.add(getDoubleValue(STR."Item \{ iteration++ }: ",
+            itemPrices.add(getDoubleValue(String.format("Item %d", iteration),
                     "Please Enter a Numerical Value: "));
             System.out.print("Type 'quit' to exit and save or any other key to continue: ");
             if(mainScanner.next().equalsIgnoreCase("quit")){
