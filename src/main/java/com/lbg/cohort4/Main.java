@@ -22,6 +22,7 @@ public class Main{
                     "Please Enter a Numerical Value: "),
                     getIntValue("Please enter a quantity: ",
                             "Please Enter a Numerical Value:")));
+            iteration++;
 
             System.out.print("Type 'quit' to exit and save or any other key to continue: ");
             if(mainScanner.next().equalsIgnoreCase("quit")){
@@ -35,6 +36,10 @@ public class Main{
                     "Please Enter a Numerical Value Between 0 and 100: ");
         }while(!(vat >= 0 && vat <= 100));
 
+
+//        for(int i=1; i < itemPrices.size(); i++) {
+//            System.out.println("item "+ i) ;
+//        }
 
         System.out.println("Your total cost for these items (price + VAT) is: " + sum(itemPrices, vat/100));
 

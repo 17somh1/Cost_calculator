@@ -10,6 +10,7 @@ public class ShopItem {
 
     }
     public double calculateTotalCost(double taxRate){
-        return (itemPrice * quantity) + (itemPrice * quantity * taxRate);
+        double result = (itemPrice * quantity) + (itemPrice * quantity * taxRate);
+        return result;
     }
 }
